@@ -1,0 +1,25 @@
+{
+  "name"        : "my-vue",  // 应用名称
+  "script"      : "./local.sh",  // 实际启动脚本
+//  "instances"   : 4,
+//  "exec_mode"   : "cluster",
+  "watch": [  // 监控变化的目录，一旦变化，自动重启
+    "./websrc",
+    "./nodeapp"
+  ],
+  "ignore_watch" : [  // 从监控目录中排除
+    "nodeapp/node_modules",
+    "logs/",
+    "websrc/node_modules",
+    "websrc/dist"
+  ],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "error_file" : "./logs/app-err.log",  // 错误日志路径
+  "out_file"   : "./logs/app-out.log",  // 普通日志路径
+  "env": {
+    "NODE_ENV": "tr",  // 环境参数，当前指定为生产环境
+    "PORT": 5643
+  }
+}
